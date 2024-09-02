@@ -2,15 +2,31 @@
     {
         "company": "Company 1",
         "title": "Title",
-        "startDate": "Start Data",
+        "startDate": "January 2020",
         "endDate": "Present",
-        "description": "Description"
+        "description": [
+            "description1",
+            "description2"
+        ]
     },
     {
         "company": "Company 2",
         "title": "Title",
-        "startDate": "Start Data",
+        "startDate": "January 2020",
         "endDate": "Present",
-        "description": "Description"
+        "description": [
+            "description1",
+            "description2"
+        ]
+    },
+    {
+        "company": "Company 3",
+        "title": "Title",
+        "startDate": "January 2020",
+        "endDate": "Present",
+        "description": [
+            "description1",
+            "description2"
+        ]
     }
 ]

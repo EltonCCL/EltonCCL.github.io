@@ -30,10 +30,15 @@ const ProjectName = styled.h3`
   margin-bottom: 10px;
 `;
 
-const ProjectDescription = styled.p`
+const DescriptionList = styled.ul`
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 15px;
+  padding-left: 20px;
+`;
+
+const DescriptionItem = styled.li`
+  margin-bottom: 8px;
 `;
 
 const ProjectLink = styled.a`
@@ -53,7 +58,11 @@ function Projects({ projects }) {
       {projects.map((project, index) => (
         <ProjectCard key={index}>
           <ProjectName>{project.name}</ProjectName>
-          <ProjectDescription>{project.description}</ProjectDescription>
+          <DescriptionList>
+            {project.description.map((item, itemIndex) => (
+              <DescriptionItem key={itemIndex}>{item}</DescriptionItem>
+            ))}
+          </DescriptionList>
           <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
             Learn More
           </ProjectLink>

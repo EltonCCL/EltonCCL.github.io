@@ -43,9 +43,14 @@ const DateRange = styled.p`
   margin-bottom: 15px;
 `;
 
-const Description = styled.p`
+const DescriptionList = styled.ul`
   font-size: 18px;
   line-height: 1.5;
+  padding-left: 20px;
+`;
+
+const DescriptionItem = styled.li`
+  margin-bottom: 8px;
 `;
 
 function WorkExperience({ experiences }) {
@@ -57,7 +62,11 @@ function WorkExperience({ experiences }) {
           <CompanyName>{exp.company}</CompanyName>
           <JobTitle>{exp.title}</JobTitle>
           <DateRange>{exp.startDate} - {exp.endDate}</DateRange>
-          <Description>{exp.description}</Description>
+          <DescriptionList>
+            {exp.description.map((item, itemIndex) => (
+              <DescriptionItem key={itemIndex}>{item}</DescriptionItem>
+            ))}
+          </DescriptionList>
         </ExperienceCard>
       ))}
     </ExperienceContainer>

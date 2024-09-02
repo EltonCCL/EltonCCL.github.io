@@ -20,8 +20,8 @@ const Subtitle = styled.p`
 function Header() {
   return (
     <HeaderContainer>
-      <Title>Your Name</Title>
-      <Subtitle>Your Professional Title</Subtitle>
+      <Title>Elton Chun-Chai Li</Title>
+      <Subtitle>MPhil student in Computer Science</Subtitle>
     </HeaderContainer>
   );
 }

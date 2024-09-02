@@ -10,7 +10,7 @@ const FooterContainer = styled.footer`
 function Footer() {
   return (
     <FooterContainer>
-      <p>&copy; {new Date().getFullYear()} Your Name. All rights reserved.</p>
+      <p>&copy; {new Date().getFullYear()} Elton Chun-Chai Li. All rights reserved.</p>
     </FooterContainer>
   );
 }
