@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Header from './Header';
+import Sidebar from './Sidebar';
 import WorkExperience from './WorkExperience';
 import Projects from './Projects';
 import Footer from './Footer';
 import experienceData from './data.json';
-import projectsData from './projects.json'; // You'll need to create this file
+import projectsData from './projects.json';
+import sidebarData from './sidebar.json';
 
 const AppContainer = styled.div`
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -18,10 +20,20 @@ const AppContainer = styled.div`
   padding: 0 20px;
 `;
 
+const MainContent = styled.div`
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+`;
+
+const RightColumn = styled.div`
+  flex: 1;
+`;
+
+
 const TabContainer = styled.div`
   display: flex;
-  justify-content: center;
-  margin-top: 40px;
+  margin-bottom: 20px;
 `;
 
 const TabButton = styled.button`
@@ -34,7 +46,7 @@ const TabButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   border-radius: 8px;
-  margin: 0 10px;
+  margin-right: 10px;
 
   &:hover {
     background-color: ${props => props.active ? '#0070c9' : '#e5e5e7'};
@@ -47,25 +59,30 @@ function App() {
   return (
     <AppContainer>
       <Header />
-      <TabContainer>
-        <TabButton
-          active={activeTab === 'experience'}
-          onClick={() => setActiveTab('experience')}
-        >
-          Work Experience
-        </TabButton>
-        <TabButton
-          active={activeTab === 'projects'}
-          onClick={() => setActiveTab('projects')}
-        >
-          Projects
-        </TabButton>
-      </TabContainer>
-      {activeTab === 'experience' ? (
-        <WorkExperience experiences={experienceData} />
-      ) : (
-        <Projects projects={projectsData} />
-      )}
+      <MainContent>
+        <Sidebar {...sidebarData} />
+        <RightColumn>
+          <TabContainer>
+            <TabButton
+              active={activeTab === 'experience'}
+              onClick={() => setActiveTab('experience')}
+            >
+              Work Experience
+            </TabButton>
+            <TabButton
+              active={activeTab === 'projects'}
+              onClick={() => setActiveTab('projects')}
+            >
+              Projects
+            </TabButton>
+          </TabContainer>
+          {activeTab === 'experience' ? (
+            <WorkExperience experiences={experienceData} />
+          ) : (
+            <Projects projects={projectsData} />
+          )}
+        </RightColumn>
+      </MainContent>
       <Footer />
     </AppContainer>
   );

@@ -1,0 +1,27 @@
+{
+  "imageUrl": "https://example.com/your-image.jpg",
+  "skills": [
+    "React",
+    "JavaScript",
+    "Node.js",
+    "CSS",
+    "HTML",
+    "Git",
+    "Python",
+    "SQL"
+  ],
+  "languages": [
+    {
+      "name": "Cantonese",
+      "proficiency": 100
+    },
+    {
+      "name": "English",
+      "proficiency": 80
+    },
+    {
+      "name": "Mandarin",
+      "proficiency": 70
+    }
+  ]
+}
