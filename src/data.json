@@ -1,0 +1,16 @@
+[
+    {
+        "company": "Company 1",
+        "title": "Title",
+        "startDate": "Start Data",
+        "endDate": "Present",
+        "description": "Description"
+    },
+    {
+        "company": "Company 2",
+        "title": "Title",
+        "startDate": "Start Data",
+        "endDate": "Present",
+        "description": "Description"
+    }
+]
