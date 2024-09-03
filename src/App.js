@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     --bg-secondary: #f5f5f7;
     --text-primary: #333333;
     --text-secondary: #666666;
-    --accent-color: #0070c9;
+    --accent-color: #333333;
     --border-color: #e0e0e0;
   }
 `;
@@ -51,12 +51,12 @@ const TabContainer = styled.div`
   display: flex;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 20px;
-  overflow-x: auto;
+  overflow-x: clip;
   width: 50%
   -webkit-overflow-scrolling: touch;
 
-  @media (max-width: 768px) {
-    margin-top: 20px;
+  @media (max-width: 992px) {
+    margin-top: 40px;
   }
 `;
 
@@ -66,7 +66,7 @@ const TabButton = styled.button`
   border: none;
   padding: 10px 0;
   margin-right: 20px;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: ${props => props.active ? '600' : '400'};
   cursor: pointer;
   transition: all 0.3s ease;
@@ -99,7 +99,7 @@ function App() {
       <AppContainer>
         <Header />
         <div className='container'>
-          <div className="row">
+          <div className="row ">
             <div className='col-lg-4'>
               <Sidebar {...sidebarData} />
             </div>

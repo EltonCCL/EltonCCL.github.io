@@ -23,8 +23,8 @@ const Title = styled.h2`
 function Header() {
   return (
     <HeaderContainer>
-      <Name>Your Name</Name>
-      <Title>Your Professional Title</Title>
+      <Name>Elton Chun-Chai, LI</Name>
+      <Title>MPhil student in Computer Science @ HKUST</Title>
     </HeaderContainer>
   );
 }

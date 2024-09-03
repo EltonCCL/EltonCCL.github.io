@@ -17,7 +17,7 @@ const ProjectCard = styled.div`
   padding: 30px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
-
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   &:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);

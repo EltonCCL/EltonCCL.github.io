@@ -38,6 +38,14 @@ const SubsectionTitle = styled.h4`
   color: var(--text-secondary);
 `;
 
+const SubsubsectionTitle = styled.h4`
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+`;
+
 const TagContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -103,7 +111,7 @@ function Sidebar({ name, title, imageUrl, skills, languages }) {
       <SubsectionTitle>Technical</SubsectionTitle>
       {skills.Technical.map((category, index) => (
         <div key={index}>
-          <SubsectionTitle>{category.category}</SubsectionTitle>
+          <SubsubsectionTitle>{category.category}</SubsubsectionTitle>
           <TagContainer>
             {category.items.map((item, itemIndex) => (
               <Tag key={itemIndex}>{item}</Tag>
