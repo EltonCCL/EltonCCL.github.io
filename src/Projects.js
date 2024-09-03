@@ -14,7 +14,7 @@ const ProjectsTitle = styled.h2`
 const ProjectCard = styled.div`
   background-color: #f5f5f7;
   border-radius: 18px;
-  padding: 30px;
+  padding: 24px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -25,9 +25,9 @@ const ProjectCard = styled.div`
 `;
 
 const ProjectName = styled.h3`
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 `;
 
 const DescriptionList = styled.ul`
