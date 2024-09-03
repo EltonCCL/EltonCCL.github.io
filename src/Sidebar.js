@@ -2,11 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SidebarContainer = styled.div`
-  width: 300px;
+  width: 100%;
   padding: 30px;
   background-color: var(--bg-secondary);
   border-radius: 18px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+
 `;
 
 const ProfileImage = styled.img`
@@ -76,12 +78,19 @@ const LanguageLevel = styled.span`
   font-style: italic;
 `;
 
+const LanguagesContainer = styled.div`
+  // @media (max-width: 768px) {
+  //   display: grid;
+  //   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  //   gap: 10px;
+  // }
+`;
 
-function Sidebar({ imageUrl, skills, languages }) {
+function Sidebar({ name, title, imageUrl, skills, languages }) {
+  console.log(skills)
   return (
     <SidebarContainer>
-      <ProfileImage src={imageUrl} alt="Profile" />
-      
+      <ProfileImage src={imageUrl} alt={name} />
       <SectionTitle>Skills</SectionTitle>
       
       <SubsectionTitle>Programming</SubsectionTitle>
@@ -102,14 +111,15 @@ function Sidebar({ imageUrl, skills, languages }) {
           </TagContainer>
         </div>
       ))}
-      
-      <SectionTitle>Languages</SectionTitle>
-      {languages.map((language, index) => (
-        <LanguageItem key={index}>
-          <LanguageName>{language.name}</LanguageName>
-          <LanguageLevel>{language.level}</LanguageLevel>
-        </LanguageItem>
-      ))}
+      <SubsectionTitle>Languages</SubsectionTitle>
+      <LanguagesContainer>
+        {languages.map((language, index) => (
+          <LanguageItem key={index}>
+            <LanguageName>{language.name}</LanguageName>
+            <LanguageLevel>{language.level}</LanguageLevel>
+          </LanguageItem>
+        ))}
+      </LanguagesContainer>
     </SidebarContainer>
   );
 }

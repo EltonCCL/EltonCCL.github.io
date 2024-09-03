@@ -36,19 +36,28 @@ const AppContainer = styled.div`
 
 const MainContent = styled.div`
   display: flex;
+  flex-direction: row;
   gap: 40px;
   margin-top: 40px;
   align-items: flex-start;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
-const RightColumn = styled.div`
-  flex: 1;
-`;
 
 const TabContainer = styled.div`
   display: flex;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 20px;
+  overflow-x: auto;
+  width: 50%
+  -webkit-overflow-scrolling: touch;
+
+  @media (max-width: 768px) {
+    margin-top: 20px;
+  }
 `;
 
 const TabButton = styled.button`
@@ -62,6 +71,7 @@ const TabButton = styled.button`
   cursor: pointer;
   transition: all 0.3s ease;
   position: relative;
+  white-space: nowrap;
 
   &::after {
     content: '';
@@ -88,30 +98,34 @@ function App() {
       <GlobalStyle />
       <AppContainer>
         <Header />
-        <MainContent>
-          <Sidebar {...sidebarData} />
-          <RightColumn>
-            <TabContainer>
-              <TabButton
-                active={activeTab === 'experience'}
-                onClick={() => setActiveTab('experience')}
-              >
-                Work Experience
-              </TabButton>
-              <TabButton
-                active={activeTab === 'projects'}
-                onClick={() => setActiveTab('projects')}
-              >
-                Projects
-              </TabButton>
-            </TabContainer>
-            {activeTab === 'experience' ? (
-              <WorkExperience experiences={experienceData} />
-            ) : (
-              <Projects projects={projectsData} />
-            )}
-          </RightColumn>
-        </MainContent>
+        <div className='container'>
+          <div className="row">
+            <div className='col-lg-4'>
+              <Sidebar {...sidebarData} />
+            </div>
+            <div className='col-lg-8'>
+              <TabContainer>
+                <TabButton
+                  active={activeTab === 'experience'}
+                  onClick={() => setActiveTab('experience')}
+                >
+                  Work Experience
+                </TabButton>
+                <TabButton
+                  active={activeTab === 'projects'}
+                  onClick={() => setActiveTab('projects')}
+                >
+                  Projects
+                </TabButton>
+              </TabContainer>
+              {activeTab === 'experience' ? (
+                <WorkExperience experiences={experienceData} />
+              ) : (
+                <Projects projects={projectsData} />
+              )}
+            </div>
+          </div>
+        </div>
         <Footer />
       </AppContainer>
     </>
