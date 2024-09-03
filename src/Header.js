@@ -2,26 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HeaderContainer = styled.header`
-  padding: 40px 0;
   text-align: center;
+  padding: 20px 0;
 `;
 
-const Title = styled.h1`
-  font-size: 48px;
-  font-weight: 700;
-  margin-bottom: 10px;
+const Name = styled.h1`
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
 `;
 
-const Subtitle = styled.p`
-  font-size: 24px;
-  color: #666;
+const Title = styled.h2`
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin: 0;
 `;
 
 function Header() {
   return (
     <HeaderContainer>
-      <Title>Elton Chun-Chai Li</Title>
-      <Subtitle>MPhil student in Computer Science</Subtitle>
+      <Name>Your Name</Name>
+      <Title>Your Professional Title</Title>
     </HeaderContainer>
   );
 }
