@@ -36,6 +36,9 @@ const TabContainer = styled.div`
   margin-bottom: 20px;
 `;
 
+const SidebarContainer = styled.div``;
+
+
 const TabButton = styled.button`
   background-color: ${props => props.active ? '#0070c9' : '#f5f5f7'};
   color: ${props => props.active ? 'white' : '#333'};
@@ -60,7 +63,9 @@ function App() {
     <AppContainer>
       <Header />
       <MainContent>
-        <Sidebar {...sidebarData} />
+        <SidebarContainer>
+          <Sidebar {...sidebarData} />
+        </SidebarContainer>
         <RightColumn>
           <TabContainer>
             <TabButton

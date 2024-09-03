@@ -23,36 +23,27 @@ const SectionTitle = styled.h3`
   margin-bottom: 10px;
 `;
 
+const SubsectionTitle = styled.h4`
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 15px;
+  margin-bottom: 5px;
+`;
+
 const SkillList = styled.ul`
   list-style-type: none;
-  padding: 0;
-  margin-bottom: 20px;
+  padding-left: 0;
+  margin-bottom: 10px;
 `;
 
 const SkillItem = styled.li`
-  font-size: 16px;
-  margin-bottom: 5px;
+  font-size: 14px;
+  margin-bottom: 3px;
 `;
 
 const LanguageItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 5px;
-`;
-
-const ProgressBar = styled.div`
-  width: 100px;
-  height: 10px;
-  background-color: #e0e0e0;
-  border-radius: 5px;
-  overflow: hidden;
-`;
-
-const Progress = styled.div`
-  width: ${props => props.proficiency}%;
-  height: 100%;
-  background-color: #0070c9;
 `;
 
 function Sidebar({ imageUrl, skills, languages }) {
@@ -60,20 +51,22 @@ function Sidebar({ imageUrl, skills, languages }) {
     <SidebarContainer>
       <ProfileImage src={imageUrl} alt="Profile" />
       
-      <SectionTitle>Skills</SectionTitle>
-      <SkillList>
-        {skills.map((skill, index) => (
-          <SkillItem key={index}>{skill}</SkillItem>
-        ))}
-      </SkillList>
+      <SectionTitle>SKILLS</SectionTitle>
+      
+      <SubsectionTitle>Programming</SubsectionTitle>
+      <SkillItem>{skills.Programming.join(', ')}</SkillItem>
+      
+      <SubsectionTitle>Technical</SubsectionTitle>
+      {skills.Technical.map((category, index) => (
+        <div key={index}>
+          <SkillItem>{category.category}: {category.items.join(', ')}</SkillItem>
+        </div>
+      ))}
       
       <SectionTitle>Languages</SectionTitle>
       {languages.map((language, index) => (
         <LanguageItem key={index}>
-          <span>{language.name}</span>
-          <ProgressBar>
-            <Progress proficiency={language.proficiency} />
-          </ProgressBar>
+        {language.name} ({language.level})
         </LanguageItem>
       ))}
     </SidebarContainer>

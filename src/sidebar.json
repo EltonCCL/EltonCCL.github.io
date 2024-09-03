@@ -1,27 +1,34 @@
 {
-  "imageUrl": "https://example.com/your-image.jpg",
-  "skills": [
-    "React",
-    "JavaScript",
-    "Node.js",
-    "CSS",
-    "HTML",
-    "Git",
-    "Python",
-    "SQL"
-  ],
+  "imageUrl": "profile_icon.jpeg",
+  "skills": {
+    "Programming": ["Python", "C/C++", "SQL", "JavaScript/TypeScript", "Java", "PHP"],
+    "Technical": [
+      {
+        "category": "Machine Learning",
+        "items": ["TensorFlow/Keras", "PyTorch", "Hugging Face", "Scikit-learn", "Pandas", "NumPy"]
+      },
+      {
+        "category": "Databases",
+        "items": ["MySQL", "PostgreSQL", "SQLAlchemy", "ORM"]
+      },
+      {
+        "category": "Tools & Frameworks",
+        "items": ["Git", "Docker", "Node.js", "FastAPI", "React", "Flutter"]
+      }
+    ]
+  },
   "languages": [
     {
       "name": "Cantonese",
-      "proficiency": 100
+      "level": "Native"
     },
     {
       "name": "English",
-      "proficiency": 80
+      "level": "Fluent"
     },
     {
-      "name": "Mandarin",
-      "proficiency": 70
+      "name": "Chinese",
+      "level": "Proficient"
     }
   ]
 }
