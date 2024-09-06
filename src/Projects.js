@@ -12,12 +12,12 @@ const ProjectsTitle = styled.h2`
 `;
 
 const ProjectCard = styled.div`
-  background-color: #f5f5f7;
+  // background-color: #f5f5f7;
   border-radius: 18px;
   padding: 24px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   &:hover {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);
@@ -31,7 +31,7 @@ const ProjectName = styled.h3`
 `;
 
 const DescriptionList = styled.ul`
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
   margin-bottom: 15px;
   padding-left: 20px;
@@ -63,9 +63,9 @@ function Projects({ projects }) {
               <DescriptionItem key={itemIndex}>{item}</DescriptionItem>
             ))}
           </DescriptionList>
-          <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
+          {project.link && <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
             Learn More
-          </ProjectLink>
+          </ProjectLink>}
         </ProjectCard>
       ))}
     </ProjectsContainer>

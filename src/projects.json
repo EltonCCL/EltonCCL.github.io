@@ -1,8 +1,33 @@
 [
-    {
-      "name": "To be update",
-      "description": [
-      ],
-      "link": "https://github.com/EltonCCL"
-    }
-  ]
+  {
+    "name": "Web Service and App for Spatio-Temporal Visualization of Weather Forecast",
+    "description": [
+      "Developed an interactive web service and mobile application to visualize weather forecasting results across HK",
+      "Provided comprehensive insights to Hong Kong Observatory (HKO) in-house team and researchers through data interaction"
+    ]
+  },
+  {
+    "name": "Interactive Data Visualization Platform for HKUST CSE Department",
+    "description": [
+      "Engineered an interactive data visualization platform using D3.js, Python, and React",
+      "Mapped co-authorship network of 50+ faculty members, revealing key research clusters and collaboration opportunities"
+    ],
+    "link": "https://4462fall23-grp4.github.io/COMP4462-Project/"
+  },
+  {
+    "name": "R&D of Intelligent Systems for Medical Diagnosis and Applications",
+    "description": [
+      "Undergraduate Research Opportunities Program (UROP)",
+      "Conducted research on various pose estimation models and skeleton-based action recognition models for fall detection, resulting in an 85% F1 score"
+    ]
+  },
+  {
+    "name": "Online Multiplayer Bomberman",
+    "description": [
+      "Built a multiplayer game supporting 2 concurrent players with Node.js backend and HTML/CSS/JS frontend",
+      "Integrated web sessions and sockets for interactive and seamless gameplay"
+    ],
+    "link": "https://github.com/EltonCCL/comp4021-bomberman"
+  }
+]
+
