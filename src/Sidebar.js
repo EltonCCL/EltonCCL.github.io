@@ -73,7 +73,8 @@ const Tag = styled.span`
   font-size: 12px;
   font-weight: 500;
   transition: all 0.3s ease;
-  border: 0.5px solid var(--text-secondary);
+  // border: 0.5px solid var(--text-secondary);
+  box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.1);
   &:hover {
     background-color: #e0e0e0;
   }
@@ -111,13 +112,20 @@ const Separate = styled.div`
     border-bottom: 1px solid #a5a5a5;
     transform: translateY(-6px);
 `;
+const EducationItem = styled.div`
 
+`;
 function Sidebar({ name, title, imageUrl, skills, languages }) {
   console.log(skills)
   return (
     <SidebarContainer>
       <Banner></Banner>
       <ProfileImage src={imageUrl} alt={name} />
+
+      {/* <SectionTitle>Education</SectionTitle>
+      <EducationItem>Master in Philosophy in Computer Science and Engineering</EducationItem> */}
+
+
       <SectionTitle>Skills</SectionTitle>
       <Separate></Separate>
       <SubsectionTitle>Programming</SubsectionTitle>
@@ -138,6 +146,8 @@ function Sidebar({ name, title, imageUrl, skills, languages }) {
           </TagContainer>
         </div>
       ))}
+
+      <div style={{marginTop: "20px"}}></div>
       <SectionTitle>Languages</SectionTitle>
       <Separate></Separate>
       <LanguagesContainer>
