@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ProjectsContainer = styled.section`
-  margin: 40px 0;
 `;
 
 const ProjectsTitle = styled.h2`
@@ -12,29 +11,20 @@ const ProjectsTitle = styled.h2`
 `;
 
 const ProjectCard = styled.div`
-  // background-color: #f5f5f7;
   border-radius: 18px;
-  padding: 24px;
-  margin-bottom: 20px;
-  transition: all 0.3s ease;
-  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  &:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transform: translateY(-5px);
-  }
+  padding: 0px 0px 16px 0px;
 `;
 
 const ProjectName = styled.h3`
   font-size: 18px;
   font-weight: 600;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 `;
 
 const DescriptionList = styled.ul`
   font-size: 16px;
   line-height: 1.5;
-  margin-bottom: 15px;
-  padding-left: 20px;
+  margin-bottom: 0px;
 `;
 
 const DescriptionItem = styled.li`
@@ -51,22 +41,34 @@ const ProjectLink = styled.a`
   }
 `;
 
+const Separate = styled.div`
+    border-bottom: 1px solid #a5a5a5;
+    width: calc(100% - 0px);
+    transform: translate(0px, -7px);
+`;
+
 function Projects({ projects }) {
   return (
     <ProjectsContainer>
       <ProjectsTitle>Projects</ProjectsTitle>
       {projects.map((project, index) => (
+        <>
+        <Separate></Separate>
         <ProjectCard key={index}>
+          <div style={{display: 'flex', justifyContent: 'space-between'}}>
           <ProjectName>{project.name}</ProjectName>
+          {project.link && <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
+            [Code]
+          </ProjectLink>}
+          </div>
           <DescriptionList>
             {project.description.map((item, itemIndex) => (
               <DescriptionItem key={itemIndex}>{item}</DescriptionItem>
             ))}
           </DescriptionList>
-          {project.link && <ProjectLink href={project.link} target="_blank" rel="noopener noreferrer">
-            Learn More
-          </ProjectLink>}
-        </ProjectCard>
+
+        </ProjectCard></>
+
       ))}
     </ProjectsContainer>
   );

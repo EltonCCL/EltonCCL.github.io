@@ -2,40 +2,29 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ExperienceContainer = styled.section`
-  margin: 40px 0;
 `;
 
 const ExperienceTitle = styled.h2`
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 `;
 
-const ExperienceCard = styled.div`
-  // background-color: #;
+const Card = styled.div`
   border-radius: 18px;
-  padding: 24px 16px 12px 16px;
-  margin-bottom: 8px;
-  transition: all 0.3s ease;
-  // box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  // &:hover {
-  //   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  //   transform: translateY(-4px);
-  // }
+  padding: 0px 0px 16px 0px;
 `;
 
 const CompanyName = styled.h3`
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 4px;
-  
 `;
 
 const JobTitle = styled.h4`
   font-size: 18px;
   font-weight: 400;
   font-style: italic;
-  // color: #666;
   margin-bottom: 8px;
 `;
 
@@ -53,7 +42,7 @@ const DateRange = styled.p`
 const DescriptionList = styled.ul`
   font-size: 16px;
   line-height: 1.5;
-  padding-left: 40px;
+  margin-bottom: 0px;
 `;
 
 const DescriptionItem = styled.li`
@@ -61,8 +50,8 @@ const DescriptionItem = styled.li`
 `;
 const Separate = styled.div`
     border-bottom: 1px solid #a5a5a5;
-    width: calc(100% - 32px);
-    transform: translate(16px, -7px);
+    width: calc(100% - 0px);
+    transform: translate(0px, -7px);
 `;
 
 function WorkExperience({ experiences }) {
@@ -71,10 +60,12 @@ function WorkExperience({ experiences }) {
       <ExperienceTitle>Work Experience</ExperienceTitle>
       {experiences.map((exp, index) => (
         <>
-          <ExperienceCard key={index}>
+          <Card key={index}>
             <div className='container-fluid'>
               <div class="row justify-content-between">
+                <Separate></Separate>
                 <div class="col-md" style={{ padding: 0 }}>
+
                   <CompanyName>{exp.company}</CompanyName>
                   <JobTitle>{exp.title}</JobTitle>
                 </div>
@@ -88,10 +79,8 @@ function WorkExperience({ experiences }) {
                 <DescriptionItem key={itemIndex}>{item}</DescriptionItem>
               ))}
             </DescriptionList>
-          </ExperienceCard>
-          <Separate></Separate>
+          </Card>
         </>
-
       ))}
     </ExperienceContainer >
   );

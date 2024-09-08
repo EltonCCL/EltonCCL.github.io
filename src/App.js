@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-import Header from './Header';
 import Sidebar from './Sidebar';
 import WorkExperience from './WorkExperience';
 import Projects from './Projects';
@@ -13,7 +12,7 @@ import Biography from './Biography';
 import Publications from './Publication';
 import Education from './Education';
 import Patents from './Patents';
-
+import { Tabs, ConfigProvider } from 'antd';
 const GlobalStyle = createGlobalStyle`
   :root {
     --bg-primary: #ffffff;
@@ -40,73 +39,18 @@ const AppContainer = styled.div`
   color: var(--text-primary);
 `;
 
-const MainContent = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 40px;
-  margin-top: 40px;
-  align-items: flex-start;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-  }
-`;
-
-
-const TabContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-bottom: 1px solid var(--border-color);
-  margin-bottom: 40px;
-  overflow-x: clip;
+const AntTabContainer = styled.div`
   width: 100%;
-  -webkit-overflow-scrolling: touch;
   position: sticky;
   top: 0px;
   z-index: 20;
-  
   background-color: rgba(256, 256, 256, 0.61);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(8px);
+  margin-bottom: 40px;
 `;
 
-const TabButton = styled.button`
-  background-color: transparent;
-  color: ${props => props.active ? 'var(--accent-color)' : 'var(--text-secondary)'};
-  border: none;
-  padding: 10px 0;
-  margin-right: 20px;
-  font-size: 18px;
-  font-weight: ${props => props.active ? '600' : '400'};
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  white-space: nowrap;
-  z-index: 20;
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: var(--accent-color);
-    transform: scaleX(${props => props.active ? 1 : 0});
-    transition: transform 0.3s ease;
-  }
-
-  &:hover {
-    color: var(--accent-color);
-  }
-`;
-
-const TabHeader = styled.div`
-  transform: translateX(-12px);
-  @media (max-width: 992px) {
-    margin-top: 40px;
-  }
-`;
 
 const Content = ({ headers }) => {
   return (
@@ -123,10 +67,10 @@ const Content = ({ headers }) => {
 function App() {
   const headers = useMemo(() => [
     { id: 'biography', label: 'Biography', component: <Biography /> },
+    { id: 'education', label: 'Education', component: <Education /> },
     { id: 'experience', label: 'Work Experience', component: <WorkExperience experiences={experienceData} /> },
     { id: 'projects', label: 'Projects', component: <Projects projects={projectsData} /> },
     { id: 'publications', label: 'Publications', component: <Publications /> },
-    { id: 'education', label: 'Education', component: <Education /> },
     { id: 'patents', label: 'Patents', component: <Patents /> },
   ], []);
 
@@ -147,7 +91,6 @@ function App() {
         }
         return false;
       });
-      console.log(isActive)
       if (activeHeader && !isActive) {
         setActiveId(activeHeader.id);
       }
@@ -193,25 +136,77 @@ function App() {
       clearInterval(intervalRef.current);
     }, 1000);
   };
+
+  function check(el) {
+    let curOverf = el.style.overflow;
+
+    if (!curOverf || curOverf === "visible")
+      el.style.overflow = "hidden";
+
+    let isOverflowing = el.clientWidth < el.scrollWidth
+      || el.clientHeight < el.scrollHeight;
+
+    el.style.overflow = curOverf;
+
+    return isOverflowing;
+  }
+  const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const [overflow, setOverflow] = useState(false);
+  const handleWindowResize = useCallback(event => {
+    setWindowSize(window.innerWidth);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('resize', handleWindowResize);
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+
+  }, [handleWindowResize]);
+
+  useEffect(()=>{
+    setOverflow(check(document.getElementsByClassName('ant-tabs-nav-wrap')[0]))
+  }, [windowSize])
+
+
   return (
     <>
       <GlobalStyle />
-      <AppContainer>
-
-        <TabContainer>
-          {headers.map(header => (
-            <TabButton
-              key={header.id}
-              active={activeId === header.id ? 'active' : ''}
-              onClick={() => {
-                handleTabClick();
-                handleHeaderClick(header.id);
-              }}
-            >
-              {header.label}
-            </TabButton>
-          ))}
-        </TabContainer>
+        <AntTabContainer>
+          <ConfigProvider
+            theme={{
+              components: {
+                Tabs: {
+                  inkBarColor: "var(--text-secondary)",
+                  itemSelectedColor: "var(--accent-color)",
+                  itemHoverColor: "var(--accent-color)",
+                  titleFontSize: "16px",
+                  itemActiveColor: "var(--accent-color)",
+                  horizontalItemGutter: "8px",
+                  horizontalItemPaddingLG: "12px 16px 12px 16px",
+                  horizontalMargin: "0 0 0 0",
+                },
+              },
+            }}
+          >
+            <Tabs
+              centered={!overflow}
+              size='large'
+              activeKey={activeId}
+              onTabClick={(k, e) => {handleTabClick(); handleHeaderClick(k)}}
+              items={headers.map((header) => {
+                const id = header.id;
+                return {
+                  label: header.label,
+                  key: header.id,
+                  disabled: false,
+                  children: '',
+                };
+              })}
+            />
+          </ConfigProvider>
+        </AntTabContainer>
+        <AppContainer>
 
         <div className='container'>
           <div className="row ">

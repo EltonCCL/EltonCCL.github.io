@@ -9,6 +9,9 @@ const SidebarContainer = styled.div`
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   position: relative;
+  @media (max-width: 992px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const Banner = styled.div`
@@ -73,7 +76,6 @@ const Tag = styled.span`
   font-size: 12px;
   font-weight: 500;
   transition: all 0.3s ease;
-  // border: 0.5px solid var(--text-secondary);
   box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.1);
   &:hover {
     background-color: #e0e0e0;
@@ -101,11 +103,6 @@ const LanguageLevel = styled.span`
 
 const LanguagesContainer = styled.div`
   margin-top: 8px;
-  // @media (max-width: 768px) {
-  //   display: grid;
-  //   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  //   gap: 10px;
-  // }
 `;
 
 const Separate = styled.div`
@@ -130,7 +127,6 @@ const AboutMe = styled.div`
 `;
 
 function Sidebar({ name, title, imageUrl, skills, languages }) {
-  console.log(skills)
   return (
     <SidebarContainer>
       <Banner></Banner>
