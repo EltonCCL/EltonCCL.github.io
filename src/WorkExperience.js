@@ -14,7 +14,7 @@ const ExperienceTitle = styled.h2`
 const ExperienceCard = styled.div`
   // background-color: #;
   border-radius: 18px;
-  padding: 24px 24px 12px 24px;
+  padding: 24px 16px 12px 16px;
   margin-bottom: 8px;
   transition: all 0.3s ease;
   // box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -61,8 +61,8 @@ const DescriptionItem = styled.li`
 `;
 const Separate = styled.div`
     border-bottom: 1px solid #a5a5a5;
-    width: calc(100% - 48px);
-    transform: translate(24px, -7px);
+    width: calc(100% - 32px);
+    transform: translate(16px, -7px);
 `;
 
 function WorkExperience({ experiences }) {
