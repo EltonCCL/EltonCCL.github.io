@@ -9,6 +9,10 @@ import Footer from './Footer';
 import experienceData from './data.json';
 import projectsData from './projects.json';
 import sidebarData from './sidebar.json';
+import AboutMe from './AboutMe';
+import Publications from './Publication';
+import Education from './Education';
+import Patents from './Patents';
 
 const GlobalStyle = createGlobalStyle`
   :root {
@@ -31,7 +35,7 @@ const AppContainer = styled.div`
   -moz-osx-font-smoothing: grayscale;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 0px 20px 40px 20px;
   background-color: var(--bg-primary);
   color: var(--text-primary);
 `;
@@ -51,15 +55,20 @@ const MainContent = styled.div`
 
 const TabContainer = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1px solid var(--border-color);
   margin-bottom: 20px;
   overflow-x: clip;
-  width: 50%
+  width: 100%;
   -webkit-overflow-scrolling: touch;
-
-  @media (max-width: 992px) {
-    margin-top: 40px;
-  }
+  position: sticky;
+  top: 0px;
+  z-index: 20;
+  
+  background-color: rgba(256, 256, 256, 0.61);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(8px);
 `;
 
 const TabButton = styled.button`
@@ -74,7 +83,7 @@ const TabButton = styled.button`
   transition: all 0.3s ease;
   position: relative;
   white-space: nowrap;
-
+  z-index: 20;
   &::after {
     content: '';
     position: absolute;
@@ -92,39 +101,50 @@ const TabButton = styled.button`
   }
 `;
 
+const TabHeader = styled.div`
+  transform: translateX(-12px);
+  @media (max-width: 992px) {
+    margin-top: 40px;
+  }
+`;
+
 function App() {
   const [activeTab, setActiveTab] = useState('experience');
-
+  const tabs = [
+    { id: 'about', label: 'About Me', component: <AboutMe /> },
+    { id: 'experience', label: 'Work Experience', component: <WorkExperience experiences={experienceData} /> },
+    // { id: 'education', label: 'Education', component: <Education /> },
+    { id: 'projects', label: 'Projects', component: <Projects projects={projectsData} /> },
+    { id: 'publications', label: 'Publications', component: <Publications /> },
+    { id: 'patents', label: 'Patents', component: <Patents /> },
+  ];
   return (
     <>
       <GlobalStyle />
       <AppContainer>
-        <Header />
+        {/* <TabHeader className='d-flex flex-row'>
+          <div style={{ width: "12px", height: "100%", backgroundColor: "red" }}></div> */}
+          <TabContainer>
+            {tabs.map(tab => (
+              <TabButton
+                key={tab.id}
+                active={activeTab === tab.id}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </TabButton>
+            ))}
+          </TabContainer>
+        {/* </TabHeader> */}
+        {/* <Header /> */}
         <div className='container'>
           <div className="row ">
             <div className='col-lg-4'>
               <Sidebar {...sidebarData} />
             </div>
             <div className='col-lg-8'>
-              <TabContainer>
-                <TabButton
-                  active={activeTab === 'experience'}
-                  onClick={() => setActiveTab('experience')}
-                >
-                  Work Experience
-                </TabButton>
-                <TabButton
-                  active={activeTab === 'projects'}
-                  onClick={() => setActiveTab('projects')}
-                >
-                  Projects
-                </TabButton>
-              </TabContainer>
-              {activeTab === 'experience' ? (
-                <WorkExperience experiences={experienceData} />
-              ) : (
-                <Projects projects={projectsData} />
-              )}
+
+              {tabs.find(tab => tab.id === activeTab).component}
             </div>
           </div>
         </div>

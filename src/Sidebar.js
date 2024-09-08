@@ -111,10 +111,24 @@ const LanguagesContainer = styled.div`
 const Separate = styled.div`
     border-bottom: 1px solid #a5a5a5;
     transform: translateY(-6px);
-`;
-const EducationItem = styled.div`
 
 `;
+const EducationItem = styled.div`
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+`;
+
+const Name = styled.h1`
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+`;
+const AboutMe = styled.div`
+  padding-bottom: 15px
+`;
+
 function Sidebar({ name, title, imageUrl, skills, languages }) {
   console.log(skills)
   return (
@@ -124,8 +138,11 @@ function Sidebar({ name, title, imageUrl, skills, languages }) {
 
       {/* <SectionTitle>Education</SectionTitle>
       <EducationItem>Master in Philosophy in Computer Science and Engineering</EducationItem> */}
-
-
+      <AboutMe>
+      <Name>Elton Chun-Chai, LI</Name>
+      <EducationItem>MPhil in Computer Science, HKUST</EducationItem>
+      <EducationItem>BEng in Computer Science, HKUST</EducationItem>
+      </AboutMe>
       <SectionTitle>Skills</SectionTitle>
       <Separate></Separate>
       <SubsectionTitle>Programming</SubsectionTitle>
@@ -147,7 +164,7 @@ function Sidebar({ name, title, imageUrl, skills, languages }) {
         </div>
       ))}
 
-      <div style={{marginTop: "20px"}}></div>
+      <div style={{ marginTop: "20px" }}></div>
       <SectionTitle>Languages</SectionTitle>
       <Separate></Separate>
       <LanguagesContainer>
