@@ -13,6 +13,8 @@ import Publications from './Publication';
 import Education from './Education';
 import Patents from './Patents';
 import { Tabs, ConfigProvider } from 'antd';
+import { Helmet } from 'react-helmet';
+
 const GlobalStyle = createGlobalStyle`
   :root {
     --bg-primary: #ffffff;
@@ -164,49 +166,55 @@ function App() {
 
   }, [handleWindowResize]);
 
-  useEffect(()=>{
+  useEffect(() => {
     setOverflow(check(document.getElementsByClassName('ant-tabs-nav-wrap')[0]))
   }, [windowSize])
 
 
   return (
     <>
+      <Helmet>
+        <title>Elton Li</title>
+        <meta name="author" content="Elton Li" />
+        <meta name="keywords" content="Elton Li, Elton Chun Chai Li, HKUST, Computer Science" />
+        <meta name="description" content="Elton Li's personal website" />
+      </Helmet>
       <GlobalStyle />
-        <AntTabContainer>
-          <ConfigProvider
-            theme={{
-              components: {
-                Tabs: {
-                  inkBarColor: "var(--text-secondary)",
-                  itemSelectedColor: "var(--accent-color)",
-                  itemHoverColor: "var(--accent-color)",
-                  titleFontSize: "16px",
-                  itemActiveColor: "var(--accent-color)",
-                  horizontalItemGutter: "8px",
-                  horizontalItemPaddingLG: "12px 16px 12px 16px",
-                  horizontalMargin: "0 0 0 0",
-                },
+      <AntTabContainer>
+        <ConfigProvider
+          theme={{
+            components: {
+              Tabs: {
+                inkBarColor: "var(--text-secondary)",
+                itemSelectedColor: "var(--accent-color)",
+                itemHoverColor: "var(--accent-color)",
+                titleFontSize: "16px",
+                itemActiveColor: "var(--accent-color)",
+                horizontalItemGutter: "8px",
+                horizontalItemPaddingLG: "12px 16px 12px 16px",
+                horizontalMargin: "0 0 0 0",
               },
-            }}
-          >
-            <Tabs
-              centered={!overflow}
-              size='large'
-              activeKey={activeId}
-              onTabClick={(k, e) => {handleTabClick(); handleHeaderClick(k)}}
-              items={headers.map((header) => {
-                const id = header.id;
-                return {
-                  label: header.label,
-                  key: header.id,
-                  disabled: false,
-                  children: '',
-                };
-              })}
-            />
-          </ConfigProvider>
-        </AntTabContainer>
-        <AppContainer>
+            },
+          }}
+        >
+          <Tabs
+            centered={!overflow}
+            size='large'
+            activeKey={activeId}
+            onTabClick={(k, e) => { handleTabClick(); handleHeaderClick(k) }}
+            items={headers.map((header) => {
+              const id = header.id;
+              return {
+                label: header.label,
+                key: header.id,
+                disabled: false,
+                children: '',
+              };
+            })}
+          />
+        </ConfigProvider>
+      </AntTabContainer>
+      <AppContainer>
 
         <div className='container'>
           <div className="row ">
