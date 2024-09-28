@@ -51,7 +51,8 @@ const DescriptionItem = styled.li`
 const Separate = styled.div`
     border-bottom: 1px solid #a5a5a5;
     width: calc(100% - 0px);
-    transform: translate(0px, -7px);
+    transform: translate(0px, -8px);
+    margin-bottom: 8px;
 `;
 
 function WorkExperience({ experiences }) {

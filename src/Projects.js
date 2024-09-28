@@ -7,7 +7,7 @@ const ProjectsContainer = styled.section`
 const ProjectsTitle = styled.h2`
   font-size: 36px;
   font-weight: 700;
-  margin-bottom: 20px;
+  margin-bottom: 12px;
 `;
 
 const ProjectCard = styled.div`
@@ -44,7 +44,8 @@ const ProjectLink = styled.a`
 const Separate = styled.div`
     border-bottom: 1px solid #a5a5a5;
     width: calc(100% - 0px);
-    transform: translate(0px, -7px);
+    transform: translate(0px, -8px);
+    margin-bottom: 8px;
 `;
 
 function Projects({ projects }) {
