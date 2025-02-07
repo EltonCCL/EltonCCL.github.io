@@ -28,8 +28,7 @@ function Biography() {
       I am an MPhil student at the <a href='https://cse.hkust.edu.hk' target='_blank'>Department of Computer Science and Engineering</a>, <a href='https://hkust.edu.hk' target='_blank'>Hong Kong University of Science and Technology (HKUST)</a>, and a member of the <a href='https://cse.hkust.edu.hk/dsf/DSF.html' target='_blank'>DSF Lab</a>. My supervisor is <a href='https://sites.google.com/view/xiaofang-zhou' target='_blank'>Prof. Xiaofang Zhou</a>. Previously, I interned at HKUST as a Junior Research Assistant and Dymon Asia Capital as a Quant Research Intern. I received my Bachelor's degree in Computer Science from HKUST in June 2024.
       </p>
       <p>
-      Currently, I am focusing on research in knowledge graph, large language model, and graph neural network. I am also interested in machine learning, data mining, and natural language processing. 
-      </p>
+      Currently, I am focusing on research in routing optimization, reinforcement learning, multi-agent system. I am also interested in natural language processing (NLP) and large language model (LLM).</p>
       </div>
     </AboutMeContainer>
   );
