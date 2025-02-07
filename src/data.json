@@ -5,10 +5,12 @@
         "startDate": "June 2024",
         "endDate": "August 2024",
         "description": [
-            "Refined data preprocessing pipeline for cargo movement datasets, reducing erroneous data points from 25% to <1%, enhancing model reliability",
-            "Optimized the congestion detection pipeline, reducing runtime by 50% and improving overall efficiency",
-            "Engineered a Large Language Model (LLM) powered root cause analysis tool, achieving >90% accuracy in identifying underlying factors in complex scenarios",
-            "Applied dimensional reduction and spatio-temporal clustering techniques to identify complex patterns in large datasets"
+            "Collaborated with Hong Kong Air Cargo Terminals Limited (HACTL) to conduct root cause analysis of operational inefficiencies and optimize routing within their large-scale cargo handling system.",
+            "Implemented reinforcement learning algorithms to optimize signaling, reducing congestion.",
+            "Modeled spatio-temporal graph models that predicted cargo congestion with over 80% accuracy.",
+            "Engineered an LLM agent for root cause analysis, achieving over 90% accuracy identifying complex scenario issues.",
+            "Streamlined the congestion detection pipeline, reducing runtime by 50% and significantly improving efficiency.",
+            "Enhanced data preprocessing pipeline for cargo movement data, reducing data errors from 25% to less than 1%."
         ]
     },
     {
@@ -17,9 +19,9 @@
         "startDate": "April 2024",
         "endDate": "June 2024",
         "description": [
-            "Designed and backtested machine learning models for stock price prediction, incorporating market sentiment analysis",
-            "Streamlined data loading processes using APIs and Selenium, improving pipeline speed by 33%",
-            "Architected 5+ web scraping pipelines and managed over 60 database schemas, optimizing data retrieval for portfolio managers"
+            "Formulated time-series models integrating market sentiment for stock price prediction.",
+            "Engineered automated ETL pipelines leveraging APIs, Selenium, and NLP libraries (e.g., NLTK, SpaCy) to efficiently acquire and process financial data from 5+ vendors, enhancing data availability for analysis.",
+            "Optimized data loading pipelines, improving data accuracy by 25%, and maintained 50+ database schemas for efficient market data storage and retrieval."
         ]
     },
     {
@@ -28,9 +30,10 @@
         "startDate": "June 2023",
         "endDate": "August 2023",
         "description": [
-            "Led a team of three interns to create a large language model application for a local corporate bank",
-            "Orchestrated code reviews, daily meetings, and task prioritization to meet project milestones",
-            "Crafted a topic tagging pipeline using open-source LLMs for MTR Corp.'s NLP project, boosting accuracy by 14%"
+            "Led a team of three interns to develop a full-stack large language model application for DBS Bank.",
+            "Orchestrated code reviews, daily meetings, ensuring project milestone achievement.",
+            "Fine-tuned LLMs like BERT for document classification and sentiment analysis tasks.",
+            "Architected a topic tagging pipeline using LLMs for MTR Corp.'s NLP project, increasing accuracy by 14%."
         ]
     }
 ]
